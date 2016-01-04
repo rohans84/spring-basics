@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />-->
+    <bean id="circle" class="org.springbasics.Circle">
+        <property name="center" ref="pointA" />
+    </bean>
+    <bean id="triangle" class="org.springbasics.Triangle" autowire="byName">
+        <!--<property name="type" value="Equilateral" />-->
+        <!--<constructor-arg value="Isoceles" />-->
+        <!--<constructor-arg value="20" />-->
+        <!--<property name="pointA" ref="zeroPoint" />-->
+        <!--<property name="pointB" ref="point2" />-->
+        <!--<property name="pointC" ref="point3" />-->
+        <!--<property name="pointB">-->
+            <!--<bean class="org.springbasics.Point">-->
+                <!--<property name="x" value="-20"/>-->
+                <!--<property name="y" value="0" />-->
+            <!--</bean>-->
+        <!--</property>-->
+        <!--<property name="pointC">-->
+            <!--<bean class="org.springbasics.Point">-->
+                <!--<property name="x" value="20"/>-->
+                <!--<property name="y" value="0" />-->
+            <!--</bean>-->
+        <!--</property>-->
+        <!--<property name="points">-->
+            <!--<list>-->
+                <!--<ref bean="zeroPoint" />-->
+                <!--<ref bean="point2" />-->
+                <!--<ref bean="point3" />-->
+            <!--</list>-->
+        <!--</property>-->
+    </bean>
+    <bean id="pointA" class="org.springbasics.Point">
+        <property name="x" value="${pointA.pointX}"/>
+        <property name="y" value="${pointA.pointY}" />
+    </bean>
+    <bean id="pointB" class="org.springbasics.Point">
+    <property name="x" value="-20"/>
+    <property name="y" value="0" />
+    </bean>
+    <bean id="pointC" class="org.springbasics.Point">
+    <property name="x" value="20"/>
+    <property name="y" value="0" />
+    </bean>
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="pointConfig.properties" />
+    </bean>
+</beans>
