@@ -1,5 +1,8 @@
 package org.springbasics;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+
 /**
  * Created by rns.mac on 1/1/16.
  */
@@ -25,8 +28,23 @@ public class Point {
         this.y = y;
     }
 
+    public MessageSource getMessageSource() {
+        return messageSource;
+    }
+
+    public void setMessageSource(MessageSource messageSource) {
+        this.messageSource = messageSource;
+    }
+
+    @Autowired
+    private MessageSource messageSource;
+
     @Override
     public String toString() {
-        return "(" + getX() + ", " + getY() + ")";
+        return messageSource.getMessage("drawing.point",
+                new Object[] { getX(), getY()},
+                "Default point message",
+                null
+                );
     }
 }

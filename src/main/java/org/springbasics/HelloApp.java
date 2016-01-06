@@ -35,6 +35,7 @@ public class HelloApp {
         ApplicationContext context = new ClassPathXmlApplicationContext("SpringAutoWiring.xml");
         Shape circle = (Circle) context.getBean("circle");
         circle.draw();
+        //System.out.println(context.getMessage("greeting", null, "Default greeting", null));
     }
 
 }
