@@ -2,6 +2,7 @@
 .idea/
 target/
 spring_basics.iml
+.DS_Store
 
 
 # Mobile Tools for Java (J2ME)
