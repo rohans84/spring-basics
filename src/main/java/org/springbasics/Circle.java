@@ -2,10 +2,14 @@ package org.springbasics;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
 
 /**
  * Created by rns.mac on 1/3/16.
  */
+@Component
 public class Circle implements Shape {
 
 
@@ -15,8 +19,7 @@ public class Circle implements Shape {
         return center;
     }
 
-    //@Required
-    @Autowired
+    @Resource
     public void setCenter(Point center) {
         this.center = center;
     }
